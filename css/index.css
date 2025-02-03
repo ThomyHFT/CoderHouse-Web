@@ -1,0 +1,891 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #04131f;
+}
+.index_grid-container{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows:  auto 0.5fr 1fr auto;
+    grid-template-areas: 
+        "head head head"
+        "head_banner head_banner head_banner"
+        "filter productos productos"
+        "foot foot foot"
+    ;
+    min-height: 100vh;
+}
+
+.filter, .productos, #title_prod {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-out;
+}
+
+.filter.show, .productos.show, #title_prod {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* seccion head */
+.head{
+    grid-area: head;
+    width: 100%;
+    
+}
+
+.head_nav_a {
+    text-decoration: none;
+    color: aliceblue;
+}
+.head_nav_a:hover{
+    color: #c60303;
+    font-size: 1.1em;
+    transition: color 0.5s, font-size 0.3s;
+}
+
+#head_nav_logo{
+    margin-left: 50px;
+    color: aliceblue;
+    text-decoration: none;
+    font-family: "Kanit", serif;
+    text-transform: uppercase;
+    font-size: 1.5em;
+
+}
+
+.head_nav{
+    background-color: #061d30;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: aliceblue;
+    font-family: "Kanit", serif;
+    filter: drop-shadow(11px 16px 9px #000000);
+    text-transform: uppercase;
+
+}
+
+.head_nav ul{
+    list-style: none;
+    display: flex; 
+    gap: 20px; 
+    padding: 0;
+    margin-right: 50px;
+}
+.head_banner{
+    grid-area: head_banner;
+    background-image: url(/assets/img/banner.jpg);
+    background-size:cover; 
+    background-position:initial; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    text-align: center;
+    filter: drop-shadow(11px 16px 9px #000000);
+    margin-bottom: 100px;
+    
+    
+}
+
+.head_banner h1{
+    margin-top: 50px;
+    font-family: "Kanit", serif;
+    color: #c60303;
+    font-size: 3.5em;
+    font-weight: bold;
+    filter: drop-shadow(11px 16px 9px #000000);
+    text-transform: uppercase;
+}
+
+.head_banner p{
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    font-size: 1.5em;
+    
+}
+
+#title_prod{
+    width: 100%;
+    padding-top: 40px;
+    text-align: center;
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+/* seccion filter */
+
+.filter{
+    grid-area: filter;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    
+}
+
+.filter_params{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    gap: 5px;
+}
+
+.filter_check{
+    width: 90%;
+    cursor: pointer;
+}
+
+
+.filter_params select{
+    width: 50%;
+    font-family: "Kanit", serif;
+    font-size: 1em;
+    cursor: pointer;    
+}
+
+.filter h3{
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    font-size: 1.3em;
+    text-align: center  ;
+}
+
+
+
+.filter label,span{
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    font-size: 1.1em;
+}
+
+.filter_valor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+input[type="range"] {
+    width: 80%;
+    -webkit-appearance: none;
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#priceValue {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.button_general{
+    background-color: #D32F2F; 
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Kanit", sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.button_general:hover{
+    background-color: #B71C1C;
+ }
+ .button_general:active{
+    transform: scale(0.95);
+ }
+
+/* seccion productos */
+
+#show_button{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+}
+.productos{
+    grid-area: productos;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.1fr 1fr;
+    gap: 20px;
+}
+
+.productos_articulo{
+    transition: all .3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    cursor: pointer; 
+    position: relative;
+    width: 100%;
+    max-width: 500px; 
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.productos_articulo img:first-child{
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.productos_articulo_info {
+    position: absolute;
+    width: 100%;
+    bottom: 50%; 
+    left: 50%;
+    transform: translate(-50%, 50%);
+    transition: .3s ease;
+    opacity: 0;
+    text-align: center;
+
+}
+
+.productos_articulo_info h4{
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.productos_articulo_info p{
+    font-family: "Kanit", serif;
+    color: aliceblue;
+    padding: 10px;
+    text-align:center;
+    
+}
+
+
+.productos_articulo:hover{
+    transform: 
+    perspective(250px)
+    translateY(-5%)
+    translateZ(0);
+}
+.productos_articulo::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        to bottom,transparent 0%,
+        rgba(0,0,0,0.7) 20%,
+        rgba(0,0,0) 100%
+    );
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.productos_articulo:hover::before{
+    opacity: 1;
+}
+
+.productos_articulo:hover .productos_articulo_info{
+    opacity: 1;
+    transform: translate(-50%, 50%);
+}
+
+/* foot */
+
+.foot{
+    grid-area: foot;
+}
+
+.foot {
+    width: 100%;
+    background-color: #111;
+    color: aliceblue;
+    text-align: center;
+    padding: 20px 0;
+    font-family: "Kanit", sans-serif;
+    margin-top: 40px;
+}
+
+.foot_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.foot_socials a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.foot_socials img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.foot_socials img:hover {
+    transform: scale(1.2);
+}
+
+
+/* pagina producto */
+
+.producto_grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto 1fr auto;
+    grid-template-areas: 
+        "head"
+        "prod"
+        "foot"
+    ;
+    min-height: 100vh;
+}
+
+.prod{
+    grid-area: prod;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows: repeat(2, 1fr);
+}
+.prod_comprar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 20px;
+}
+.prod_comprar_carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 30px;
+    padding: 70px;
+    filter: drop-shadow(11px 16px 9px #000000);
+}
+
+.prod_comprar_carousel_images img {
+    width: 100%;
+    display: none; 
+}
+
+.prod_comprar_carousel_images img.active {
+    display: block; 
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+button.prev:hover, button.next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+ .prod_comprar_controles{
+    width: 60%;
+    height: 500px;
+    display : flex;
+    color: aliceblue;
+    font-family: 'kanit' ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    filter: drop-shadow(11px 16px 9px #000000);
+ }
+
+ .prod_comprar_caracteristicas{
+    width: 100%;
+    height: 500px;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    filter: drop-shadow(11px 16px 9px #000000);
+ }
+ .prod_comprar_caracteristicas_cambiante{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+ }
+
+ .prod_comprar_controles button{
+    background-color: #D32F2F; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Kanit", sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    
+ }
+
+
+ /*Simulacion*/
+
+ .prod_comprar_caracteristicas_cambiante button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-family: "Kanit", sans-serif;
+ }
+
+ #btn1{
+    color: #E7ECEF;
+    font-family: "Kanit", sans-serif;
+    text-decoration: underline;
+ }
+
+ #btn2{
+    color: #878B91;
+    font-family: "Kanit", sans-serif;
+ }
+
+ #btn2:hover{
+    color: #E7ECEF;
+    text-decoration: underline;
+    
+ }
+
+ #parrafos{
+    width: 70%;
+    height: auto;
+    border: 2px solid black;
+    color: #E7ECEF;
+    font-family: "Kanit", sans-serif;
+    text-align: justify;
+    padding: 10px;
+}
+
+/* faqs */
+
+.faq-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto 1fr auto;
+    grid-template-areas: 
+        "head"
+        "faq"
+        "foot"
+    ;
+    min-height: 100vh;
+}
+
+.faq{
+    grid-area: faq;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    color: #E7ECEF;
+    font-family: "Kanit", sans-serif;
+}
+
+.faq_quienes h1{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.faq_quienes_parrafo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq_quienes_parrafo p{
+    width: 50%;
+    padding: 30px;
+    text-align: justify;
+    color: aliceblue;
+}
+
+.faq_quienes_img{
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 30px;
+    padding: 70px;
+    filter: drop-shadow(11px 16px 9px #000000);
+}
+
+.faq_quienes_img img{
+    width: 100%;
+}
+
+.faq_preguntas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.faq_preguntas h2{
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.faq_preguntas_lista{
+    width: 90%;
+    color: #E7ECEF;
+    
+    display: flex;
+}
+
+.faq_preguntas_lista li{
+    font-size: 1.2em;
+    padding: 5px;
+}
+.faq_preguntas_lista p{
+    padding-left: 15px;
+}
+
+
+/* responsive */
+
+/* Escritorios grandes */
+@media screen and (min-width: 1440px) {
+
+
+}
+/* Escritorios pequeños */
+@media screen and (max-width: 1366px) {
+
+    /* Estilos para pantallas de escritorio más pequeñas */
+}
+/* Tabletas (landscape) */
+@media screen and (max-width: 1280px) {
+
+    /* index */
+    .index_grid-container{
+        grid-template-columns: 0.3fr 1fr ;
+        grid-template-rows:  auto 0.3fr 0.5fr auto;
+    }
+    
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    /* index */
+    .index_grid-container{
+        
+        grid-template-columns: 1fr;
+        grid-template-rows:  auto 0.3fr 0.5fr auto;
+    }
+    .head_banner{
+        background-position: left center; /* Mueve la imagen hacia la izquierda */
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .head_banner p{
+        width: 80%;
+        text-align: center;
+    }
+
+    .head_banner h1{
+
+        padding-top: 100px;
+    }
+
+    .productos{
+        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.1fr 1fr;
+    }
+
+    .productos_articulo_info h4, p{ 
+
+        font-size: 0.9em;
+    }
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        padding: 0;
+    }
+
+    .filter{
+        display: none;
+    }
+
+    #show_button{
+        opacity: 1;
+    }
+
+    /* faqs */
+
+    .faq{
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+    .faq_quienes_parrafo{
+        flex-direction: column;
+    }
+    .faq_quienes_parrafo p{
+        width: 90%;
+        font-size: 1em;
+    }
+    .faq_quienes h1{
+        font-size: 1.5em;
+    }
+
+    .faq_quienes_img{
+        padding: 20px;
+    }
+
+    .faq_preguntas h2{
+        font-size: 1.5em;
+    }
+
+    .faq_preguntas ol p{
+        font-size: 1em;
+    }
+
+
+}
+
+/* Móviles (landscape) */
+@media screen and (max-width: 768px) {
+    /* index */
+    .index_grid-container{
+        
+        grid-template-columns: 1fr;
+        grid-template-rows:  auto 0.5fr 0.5fr auto;
+    }
+    .head_banner{
+        background-position: left center; /* Mueve la imagen hacia la izquierda */
+        margin-bottom: 30px;
+    }
+
+    .productos{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.1fr 1fr;
+    }
+
+    .productos_articulo_info h4, p{ 
+
+        font-size: 0.8em;
+    }
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        padding: 0;
+    }
+
+    .filter{
+        display: none;
+    }
+
+    #show_button{
+        opacity: 1;
+    }
+
+    /* producto */
+
+    .prod_comprar {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+    .prod_comprar_carousel{
+        padding: 0  ;
+        max-width: 460px;
+    }
+    .prod_comprar_controles{
+        padding-top: 50px ;
+        width: 100%;
+        height: 300px;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .prod_comprar_caracteristicas{
+        height: auto;
+        gap: 7%;
+    }
+
+    /* faqs */
+    .faq{
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+    .faq_quienes_parrafo{
+        flex-direction: column;
+    }
+    .faq_quienes_parrafo p{
+        width: 90%;
+        font-size: 1em;
+    }
+    .faq_quienes h1{
+        font-size: 1.5em;
+    }
+
+    .faq_quienes_img{
+        display: none;
+    }
+
+    .faq_preguntas h2{
+        font-size: 1.5em;
+    }
+
+    .faq_preguntas ol p{
+        font-size: 1em;
+    }
+
+    
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 480px) {
+
+        /* index */
+    #head_nav_logo{
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .head_nav ul{
+        font-size: 0.8em;
+    }
+    
+    .head_banner{
+        background-position: left center; /* Mueve la imagen hacia la izquierda */
+        height: 90vh;
+        margin-bottom: 30px;
+    }
+
+    .index_grid-container{
+        grid-template-columns: 1fr;
+        grid-template-rows:  auto 0.5fr 1fr auto;
+    }
+
+    .productos{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr;
+    }
+    .productos_articulo_info h4, p{ 
+
+        font-size: 0.8em;
+    }
+    
+
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .filter{
+        display: none;
+    }
+
+    #show_button{
+        opacity: 1;
+    }
+        /* producto */
+    .prod_comprar {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+    .prod_comprar_carousel{
+        padding: 0  ;
+    }
+    .prod_comprar_controles{
+        padding-top: 50px ;
+        width: 100%;
+        height: 300px;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .prod_comprar_caracteristicas{
+        height: auto;
+    }
+
+    /* faqs */
+    .faq{
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+    .faq_quienes_parrafo{
+        flex-direction: column;
+    }
+    .faq_quienes_parrafo p{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .faq_quienes h1{
+        font-size: 1.5em;
+    }
+
+    .faq_quienes_img{
+        display: none;
+    }
+
+    .faq_preguntas h2{
+        font-size: 1.5em;
+    }
+
+    .faq_preguntas ol p{
+        font-size: 0.9em;
+    }
+
+    
+}
+
+
+
+
+
