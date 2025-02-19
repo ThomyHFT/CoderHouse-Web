@@ -1,0 +1,21 @@
+{
+  "name": "coderhouse-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass":"sass --watch sass/style.scss css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomyHFT/CoderHouse-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomyHFT/CoderHouse-Web/issues"
+  },
+  "homepage": "https://github.com/ThomyHFT/CoderHouse-Web#readme",
+  "description": ""
+}

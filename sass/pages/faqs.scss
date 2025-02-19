@@ -1,0 +1,79 @@
+.faq-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto 1fr auto;
+    grid-template-areas: 
+        "head"
+        "faq"
+        "foot"
+    ;
+    min-height: 100vh;
+}
+
+.faq{
+    grid-area: faq;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    color: $color-white;
+
+    .faq_quienes{
+        h1{
+            text-align: center;
+            padding-top: 30px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+        }
+        .faq_quienes_parrafo{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            p{
+                width: 50%;
+                padding: 30px;
+                text-align: justify;
+                color: $color-white;
+            }
+            .faq_quienes_img{
+                position: relative;
+                width: 100%;
+                max-width: 700px;
+                margin: auto;
+                overflow: hidden;
+                border-radius: 30px;
+                padding: 70px;
+                filter: $filter_dropShadow;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        
+    } 
+    .faq_preguntas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+
+        h2{
+            text-transform: uppercase;
+            font-size: 2em;
+        }
+        .faq_preguntas_lista{
+            width: 90%;
+            color: $color-white;
+            
+            display: flex;
+
+            li{
+                font-size: 1.2em;
+                padding: 5px;
+            }
+            p{
+                padding-left: 15px;
+            }
+        }
+    }
+}
