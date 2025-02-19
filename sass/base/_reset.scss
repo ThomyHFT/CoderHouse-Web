@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $general-font;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #04131f;
+  }
+  
+  .index_grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: auto 0.5fr 1fr auto;
+    grid-template-areas: 
+      "head head head"
+      "head_banner head_banner head_banner"
+      "filter productos productos"
+      "foot foot foot";
+    min-height: 100vh;
+  }
+  
+  .filter, .productos, #title_prod {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-out;
+  }
+  
+  .filter.show, .productos.show, #title_prod {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  

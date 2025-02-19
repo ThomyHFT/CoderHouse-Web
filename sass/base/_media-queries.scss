@@ -1,0 +1,299 @@
+
+@mixin responsive($size) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
+
+/* Escritorios grandes */
+@include responsive(1440px) {
+}
+
+/* Escritorios pequeños */
+@include responsive(1366px) {
+
+}
+
+/* Tabletas (landscape) */
+@include responsive(1280px) {
+    .index_grid-container {
+        grid-template-columns: 0.3fr 1fr;
+        grid-template-rows: auto 0.3fr 0.5fr auto;
+    }
+}
+
+/* Tabletas y laptops pequeñas */
+@include responsive(1024px) {
+    .index_grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 0.3fr 0.5fr auto;
+    }
+
+    .head_banner {
+        background-position: left center;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            width: 80%;
+            text-align: center;
+        }
+        h1 {
+            padding-top: 100px;
+        }
+    }
+
+    .productos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.1fr 1fr;
+    }
+
+    .productos_articulo_info {
+        h4, p {
+            font-size: 0.9em;
+        }
+    }
+
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        padding: 0;
+    }
+
+    .filter {
+        display: none;
+    }
+
+    #show_button {
+        opacity: 1;
+    }
+
+    /* faqs */
+    .faq {
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+
+    .faq_quienes_parrafo {
+        flex-direction: column;
+
+        p {
+            width: 90%;
+            font-size: 1em;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+
+    .faq_quienes_img {
+        padding: 20px;
+    }
+
+    .faq_preguntas {
+        h2 {
+            font-size: 1.5em;
+        }
+        ol p {
+            font-size: 1em;
+        }
+    }
+}
+
+/* Móviles (landscape) */
+@include responsive(768px) {
+    .index_grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 0.5fr 0.5fr auto;
+    }
+
+    .head_banner {
+        background-position: left center;
+        margin-bottom: 30px;
+    }
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.1fr 1fr;
+    }
+
+    .productos_articulo_info {
+        h4, p {
+            font-size: 0.85em;
+        }
+    }
+
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        padding: 0;
+    }
+
+    .filter {
+        display: none;
+    }
+
+    #show_button {
+        opacity: 1;
+    }
+
+    /* Producto */
+    .prod_comprar {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .prod_comprar_carousel {
+        padding: 0;
+        max-width: 460px;
+    }
+
+    .prod_comprar_controles {
+        padding-top: 50px;
+        width: 100%;
+        height: 300px;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .prod_comprar_caracteristicas {
+        height: auto;
+        gap: 7%;
+    }
+
+    /* FAQs */
+    .faq {
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+
+    .faq_quienes_parrafo {
+        flex-direction: column;
+    }
+
+    .faq_quienes_parrafo p {
+        width: 90%;
+        font-size: 1em;
+    }
+
+    .faq_quienes h1 {
+        font-size: 1.5em;
+    }
+
+    .faq_quienes_img {
+        display: none;
+    }
+
+    .faq_preguntas {
+        h2 {
+            font-size: 1.5em;
+        }
+        ol p {
+            font-size: 1em;
+        }
+    }
+}
+
+/* Móviles pequeños */
+@include responsive(480px) {
+    #head_nav_logo {
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .head_nav ul {
+        font-size: 0.8em;
+    }
+
+    .head_banner {
+        background-position: left center;
+        height: 90vh;
+        margin-bottom: 30px;
+    }
+
+    .index_grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 0.5fr 1fr auto;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr;
+    }
+
+    .productos_articulo_info {
+        h4, p {
+            font-size: 0.8em;
+        }
+    }
+
+    #title_prod {
+        width: 100%;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .filter {
+        display: none;
+    }
+
+    #show_button {
+        opacity: 1;
+    }
+
+    /* Producto */
+    .prod_comprar {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .prod_comprar_carousel {
+        padding: 0;
+    }
+
+    .prod_comprar_controles {
+        padding-top: 50px;
+        width: 100%;
+        height: 300px;
+        justify-content: start;
+        gap: 20px;
+    }
+
+    .prod_comprar_caracteristicas {
+        height: auto;
+    }
+
+    /* FAQs */
+    .faq {
+        grid-template-rows: repeat(2, 0.5fr);
+    }
+
+    .faq_quienes_parrafo {
+        flex-direction: column;
+    }
+
+    .faq_quienes_parrafo p {
+        width: 90%;
+        font-size: 0.8em;
+    }
+
+    .faq_quienes h1 {
+        font-size: 1.5em;
+    }
+
+    .faq_quienes_img {
+        display: none;
+    }
+
+    .faq_preguntas {
+        h2 {
+            font-size: 1.5em;
+        }
+        ol p {
+            font-size: 0.9em;
+        }
+    }
+}
