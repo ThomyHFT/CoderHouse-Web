@@ -74,7 +74,7 @@ body {
 
 .head_banner {
   grid-area: head_banner;
-  background-image: url(../assets/img/banner.jpg);
+  background-image: url(../assets/img/banner.webp);
   background-size: cover;
   background-position: initial;
   background-repeat: no-repeat;
@@ -228,7 +228,7 @@ body {
   opacity: 0;
   text-align: center;
 }
-.productos .productos_articulo .productos_articulo_info h4 {
+.productos .productos_articulo .productos_articulo_info h3 {
   color: #f0f8ff;
   font-size: 1.5em;
   font-weight: bold;
@@ -494,8 +494,6 @@ body {
   transform: scale(1.2);
 }
 
-/* Escritorios grandes */
-/* Escritorios pequeños */
 /* Tabletas (landscape) */
 @media screen and (max-width: 1280px) {
   .index_grid-container {
