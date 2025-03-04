@@ -1,8 +1,6 @@
 .head {
     grid-area: head;
     width: 100%;
-    
-  
     .head_nav {
       background-color: $color-bg;
       height: 80px;
@@ -14,7 +12,6 @@
       color: $color-white;
       text-transform: uppercase;
       filter: $filter_dropShadow;
-  
       #head_nav_logo {
         margin-left: 50px;
         color: $color-white;
@@ -22,19 +19,16 @@
         text-transform: uppercase;
         font-size: 1.5em;
       }
-  
       ul {
         list-style: none;
         display: flex;
         gap: 20px;
         padding: 0;
         margin-right: 50px;
-  
         li {
           a {
             text-decoration: none;
             color: $color-white;
-  
             &:hover {
               color: $color-red;
               font-size: 1.1em;

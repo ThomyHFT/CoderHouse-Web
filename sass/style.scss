@@ -3,23 +3,15 @@
 @import './base/reset';
 //header
 @import './components/navegacion';
-//INDEX
 //banner
 @import './components/banner';
-//filter (aside)
-@import './layout/filtro';
-//catalogo (main)
-@import './layout/catalogo';
 //INDEX
-
+@import './pages/index.scss';
 //PRODUCTO
 @import './pages/producto.scss';
-
 //FAQS
 @import './pages/faqs.scss';
-
 //pie (footer)
 @import './components/pie';
-
 //mixins para media queries
 @import './base/media-queries';
