@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     function checkVisibility() {
         const sections = document.querySelectorAll('.filter, .productos, #title_prod');
-    
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
     
@@ -13,19 +12,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    
     window.addEventListener('scroll', checkVisibility);
     window.addEventListener('load', checkVisibility);
-    
     const priceRange = document.getElementById("priceRange");
     const priceValue = document.getElementById("priceValue");
-    
     if (priceRange && priceValue) {
         priceRange.addEventListener("input", function() {
             priceValue.textContent = `$${new Intl.NumberFormat().format(priceRange.value)}`;
         });
     }
-    
     const resetFilters = document.getElementById("resetFilters");
     if (resetFilters) {
         resetFilters.addEventListener("click", function() {
@@ -38,11 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
-    // --- CORRECCIÓN DEL CARRUSEL ---
     let currentIndex = 0;
     const images = document.querySelectorAll(".prod_comprar_carousel_images img");
-    const prevButton = document.querySelector(".prev"); // Seleccionar botones
+    const prevButton = document.querySelector(".prev");
     const nextButton = document.querySelector(".next");
 
     if (images.length > 0) {
@@ -51,8 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = (currentIndex + step + images.length) % images.length;
             images[currentIndex].classList.add("active");
         }
-
-        // Verificar que los botones existen antes de agregar eventos
         if (prevButton && nextButton) {
             prevButton.addEventListener("click", () => moveSlide(-1));
             nextButton.addEventListener("click", () => moveSlide(1));
