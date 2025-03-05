@@ -116,10 +116,11 @@ body {
   padding-left: 20px;
   gap: 5px;
 }
-.filter .filter_params h3 {
+.filter .filter_params .label-filtro {
   color: #f0f8ff;
   font-size: 1.3em;
   text-align: center;
+  font-weight: bold;
 }
 .filter .filter_params label, .filter .filter_params span {
   color: #f0f8ff;

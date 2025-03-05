@@ -14,10 +14,11 @@
         align-items: center;
         padding-left: 20px;
         gap: 5px;
-        h3 {
+        .label-filtro {
             color: $color-white;
             font-size: 1.3em;
             text-align: center;
+            font-weight: bold;
         }
         label, span { 
             color: $color-white;

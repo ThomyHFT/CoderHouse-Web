@@ -29,16 +29,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="./js/global.js" defer></script>
+    <link rel="preload" href="./assets/img/banner.webp" loading="lazy" as="image">
     </head>
 <body>
     <div class="index_grid-container"> 
         <header class="head grid_setter">
             <div class="head_nav">
-                <a id="head_nav_logo" href="./index.html">Imports Tuners</a>
+                <a id="head_nav_logo" href="./index.html" alt="Ir al home">Imports Tuners</a>
                 <ul>
-                    <li><a class="head_nav_a" href="./index.html#productos" aria-label="Ir al Catálogo">Catálogo</a></li>
-                    <li><a class="head_nav_a" href="./html/faq.html#quienes" aria-label="Ir a Preguntas Frecuentes">¿Quiénes Somos?</a></li>
-                    <li><a class="head_nav_a" href="./html/faq.html#faqs" aria-label="Ir al FAQs">FAQs</a></li>
+                    <li><a class="head_nav_a" href="./index.html#productos" alt="Ir al Catálogo">Catálogo</a></li>
+                    <li><a class="head_nav_a" href="./html/faq.html#quienes" alt="Ir a Preguntas Frecuentes">¿Quiénes Somos?</a></li>
+                    <li><a class="head_nav_a" href="./html/faq.html#faqs" alt="Ir al FAQs">FAQs</a></li>
                 </ul>
             </div>
         </header>
@@ -48,7 +49,7 @@
         </div>
         <aside class="filter grid_setter" id="filter">
             <div class="filter_params">
-                <h3>Filtrar por marca</h3>
+                <label class="label-filtro" for="filterYear">Marca</label>
                 <select id="filterYear">
                     <option value="all">Todos</option>
                     <option value="Audi">Audi</option>
@@ -59,12 +60,12 @@
                 </select>
             </div>
             <div class="filter_params">
-                <h3>Filtrar por precio</h3>
+                <label class="label-filtro" for="priceRange">Rango de Precio</label>
                 <input type="range" id="priceRange" min="10000" max="100000" step="5000" value="50000">
                 <span id="priceValue">$50,000</span>
             </div>
             <div class="filter_params">
-                <h3>Filtrar por Año</h3>
+                <label class="label-filtro" for="filterYear">Año</label>
                 <select id="filterYear">
                     <option value="all">Todos</option>
                     <option value="2024">2024</option>
@@ -75,48 +76,48 @@
                 </select>
             </div>
             <div class="filter_params">
-                <h3>Tipo de Vehículo</h3>
+                <label class="label-filtro">Tipo de Vehículo</label>
                 <div class="filter_check">
-                    <label for="sport">Deportivo</label>
+                    <label class="label-filtro" for="sport">Deportivo</label>
                     <input type="checkbox" id="sport">
                 </div>
                 <div class="filter_check">
-                    <label for="sedan">Sedán</label>
+                    <label class="label-filtro" for="sedan">Sedán</label>
                     <input type="checkbox" id="sedan">
                 </div>
                 <div class="filter_check">
-                    <label for="suv">SUV</label>
+                    <label class="label-filtro" for="suv">SUV</label>
                     <input type="checkbox" id="suv">
                 </div>
             </div>
             <div class="filter_params">
-                <h3>Tracción</h3>
+                <label class="label-filtro">Tracción</label>
                 <div class="filter_check">
-                    <label for="awd">AWD</label>
+                    <label class="label-filtro" for="awd">AWD</label>
                     <input type="radio" name="traccion" id="awd">
                 </div>
                 <div class="filter_check">
-                    <label for="rwd">RWD</label>
+                    <label class="label-filtro" for="rwd">RWD</label>
                     <input type="radio" name="traccion" id="rwd">
                 </div>
                 <div class="filter_check">
-                    <label for="fwd">FWD</label>
+                    <label class="label-filtro" for="fwd">FWD</label>
                     <input type="radio" name="traccion" id="fwd">
                 </div>
             </div>
             <div class="filter_params">
-                <h3>Transmisión</h3>
+                <label class="label-filtro">Transmisión</label>
                 <div class="filter_check">
-                    <label for="manual">Manual</label>
+                    <label class="label-filtro" for="manual">Manual</label>
                     <input type="radio" name="transmision" id="manual">
                 </div>
                 <div class="filter_check">
-                    <label for="automatica">Automática</label>
+                    <label class="label-filtro" for="automatica">Automática</label>
                     <input type="radio" name="transmision" id="automatica">
                 </div>
             </div>
             <div class="filter_params">
-                <h3>Potencia (HP)</h3>
+                <label class="label-filtro" for="filterHP">Potencia</label>
                 <select id="filterHP">
                     <option value="all">Cualquier potencia</option>
                     <option value="150-300">150 - 300 HP</option>
@@ -137,7 +138,7 @@
                 <div class="productos_articulo_info">
                     <h3 class="productos_articulo_info_h4">Toyota Supra</h3>
                     <p>Coupé RWD con motor 3.0L turbo de 382 hp (B58) y transmisión ZF de 8 velocidades, prioriza agilidad y manejo.</p>
-                    <a class="button_general" href="./html/producto.html" aria-label="Ir al producto Toyota Supra">Más información</a>
+                    <a class="button_general" href="./html/producto.html" alt="Ir al producto Toyota Supra">Más información</a>
                 </div>
             </article>
             <article class="productos_articulo">
@@ -145,7 +146,7 @@
                 <div class="productos_articulo_info">
                     <h3 class="productos_articulo_info_h4">Nissan GTR R35</h3>
                     <p>Superdeportivo AWD con motor 3.8L V6 Twin-Turbo de hasta 600 hp, destaca por su aceleración y tracción avanzada.</p>
-                    <a class="button_general" href="./html/producto.html" aria-label="Ir al producto Nissan GTR">Más información</a>
+                    <a class="button_general" href="./html/producto.html" alt="Ir al producto Nissan GTR">Más información</a>
                 </div>
             </article>
             <article class="productos_articulo">
@@ -153,7 +154,7 @@
                 <div class="productos_articulo_info">
                     <h3 class="productos_articulo_info_h4">Honda NSX</h3>
                     <p>Híbrido AWD con motor V6 3.5L Twin-Turbo y tres motores eléctricos, entrega 573 hp con precisión y rendimiento.</p>
-                    <a class="button_general" href="./html/producto.html" aria-label="Ir al producto Honda NSX">Más información</a>
+                    <a class="button_general" href="./html/producto.html" alt="Ir al producto Honda NSX">Más información</a>
                 </div>
             </article>
             <article class="productos_articulo">
@@ -161,7 +162,7 @@
                 <div class="productos_articulo_info">
                     <h3 class="productos_articulo_info_h4">Subaru Impreza WRX</h3>
                     <p>Sedán/hatchback AWD con motor Bóxer 2.0L de 152 hp, destaca por su estabilidad y tracción en todo clima.</p>
-                    <a class="button_general" href="./html/producto.html" aria-label="Ir al producto Impreza WRX">Más información</a>
+                    <a class="button_general" href="./html/producto.html" alt="Ir al producto Impreza WRX">Más información</a>
                 </div>
             </article>
         </main>
